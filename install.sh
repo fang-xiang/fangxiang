@@ -2,6 +2,7 @@
 SH_PATH=$(cd "$(dirname "$0")";pwd)
 cd ${SH_PATH}
 
+git clone https://github.com/CCChieh/IBMYes 
 create_mainfest_file(){
     echo "进行配置。。。"
     read -p "请输入你的应用名称：" IBM_APP_NAME
@@ -11,8 +12,8 @@ create_mainfest_file(){
 	IBM_MEM_SIZE=256
     fi
     echo "内存大小：${IBM_MEM_SIZE}"
-    
-    
+
+
     cat >  ${SH_PATH}/IBMYes/v2ray-cloudfoundry/manifest.yml  << EOF
     applications:
     - path: .
@@ -50,4 +51,4 @@ install(){
 clone_repo
 create_mainfest_file
 install
-exit 0
+exit 0 
